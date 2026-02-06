@@ -1,0 +1,25 @@
+<h2>Student Management</h2>
+
+<form method="post">
+  <input name="roll" placeholder="Roll No" required>
+  <input name="name" placeholder="Name" required>
+  <input name="marks" placeholder="Marks" required>
+  <button>Add / Update</button>
+</form>
+
+<table>
+<tr><th>Roll</th><th>Name</th><th>Marks</th><th>Action</th></tr>
+{% for s in students %}
+<tr>
+  <td>{{ s[0] }}</td>
+  <td>{{ s[1] }}</td>
+  <td>{{ s[2] }}</td>
+  <td>
+    <a href="/update/{{ s[0] }}">Update</a> |
+    <a href="/delete/{{ s[0] }}" onclick="return confirm('Delete student?')">Delete</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/dashboard">Back</a>

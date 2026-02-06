@@ -1,0 +1,28 @@
+<h2>Attendance</h2>
+
+<form method="post">
+  <input name="roll" placeholder="Roll No" required>
+  <select name="status">
+    <option>Present</option>
+    <option>Absent</option>
+  </select>
+  <button>Mark Attendance</button>
+</form>
+
+<table>
+<tr><th>Roll</th><th>Date</th><th>Status</th><th>Action</th></tr>
+{% for a in attendance %}
+<tr>
+  <td>{{ a[1] }}</td>
+  <td>{{ a[2] }}</td>
+  <td>{{ a[3] }}</td>
+  <td>
+    <a href="/update_attendance/{{ a[0] }}">Update</a> |
+    <a href="/delete_attendance/{{ a[0] }}"
+       onclick="return confirm('Delete attendance?')">Delete</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/dashboard">Back</a>

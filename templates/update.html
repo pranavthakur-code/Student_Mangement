@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Update Student</h2>
+
+<form method="POST">
+    <p>Roll: {{ student[0] }}</p>
+    <input name="name" value="{{ student[1] }}" required>
+    <input name="marks" value="{{ student[2] }}" required>
+    <button>Update</button>
+</form>
+
+<a href="/students">Back</a>
+
+</body>
+</html>

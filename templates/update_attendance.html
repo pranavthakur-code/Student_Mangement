@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Attendance</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Update Attendance</h2>
+
+<form method="post">
+    <p><b>Roll:</b> {{ record[0] }}</p>
+
+    <label>New Date</label>
+    <input type="date" name="new_date" value="{{ record[1] }}" required>
+
+    <label>Status</label>
+    <select name="status">
+        <option {% if record[2] == "Present" %}selected{% endif %}>Present</option>
+        <option {% if record[2] == "Absent" %}selected{% endif %}>Absent</option>
+    </select>
+
+    <br><br>
+    <button class="btn">Update Attendance</button>
+</form>
+
+<br>
+<a href="/attendance">⬅ Back</a>
+</div>
+
+</body>
+</html>
